@@ -5,15 +5,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print("enter the password: ");
-            String password = sc.nextLine();
-            try {
-                PasswordValidator.validatorPassword(password);
-                break;
-            } catch (WeakPasswordException e) {
-                System.out.println(e.getMessage());
-            }
+        Order order = new Order("broo", 6, 3884);
+        try {
+            order.placeOrder();
+        } catch (InvalidPriceException e) {
+            System.out.println(e.getMessage());
+        } catch (InvalidQuantityException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
