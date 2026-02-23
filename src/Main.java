@@ -5,8 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        BankCard bankCard = new BankCard("kto?");
-        System.out.println(bankCard.withdraw(344));
-
+        while (true) {
+            System.out.print("enter the password: ");
+            String password = sc.nextLine();
+            try {
+                PasswordValidator.validatorPassword(password);
+                break;
+            } catch (WeakPasswordException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

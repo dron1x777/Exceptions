@@ -1,5 +1,5 @@
 public class WeakPasswordException extends RuntimeException {
-    public WeakPasswordException(double shortAge) {
-        super("Weak Password Exception. Short age: " + shortAge);
+    public WeakPasswordException(String message) {
+        super(message);
     }
 }
