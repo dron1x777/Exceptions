@@ -6,14 +6,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        Set<Student> students = new HashSet<>(Arrays.asList(
-                new Student("name", 15),
-                new Student("name", 15),
-                new Student("name", 15),
-                new Student("name", 15),
-                new Student("name", 15)
+        Set<Student> students = new HashSet<>(List.of(
+                new Student("name", 23),
+                new Student("name", 23),
+                new Student("what", 1432),
+                new Student("when", 765),
+                new Student("why", 75)
                 ));
-
         System.out.println(students);
     }
 }
