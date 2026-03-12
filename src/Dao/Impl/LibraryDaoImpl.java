@@ -7,7 +7,7 @@ import Model.Library;
 import java.util.Map;
 
 public class LibraryDaoImpl implements LibraryDao {
-    Library library = new Library();
+    private Library library = new Library();
 
     @Override
     public String addBook(Book book) {
@@ -22,13 +22,13 @@ public class LibraryDaoImpl implements LibraryDao {
     }
 
     @Override
-    public String searchBook(String keyWord) {
-        for (Map.Entry<String, Book> book : library.getBooks().entrySet()) {
-            if (book.getKey().equals(keyWord)) {
-                return book.getKey() + " " + book.getValue();
+    public Book searchBook(String keyWord) {
+        for (Map.Entry<String, Book> entry : library.getBooks().entrySet()) {
+            if (entry.getValue().getISBN().equals(keyWord)) {
+                return entry.getValue();
             }
         }
-        return "who is it?";
+        return library.getBooks().get(keyWord);
     }
 
     @Override

@@ -1,5 +1,6 @@
 import Model.Book;
 import Service.Impl.LibraryServiceImpl;
+import Service.LibraryService;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        LibraryServiceImpl libraryService = new LibraryServiceImpl();
+        LibraryService libraryService = new LibraryServiceImpl();
         String ISBN = "";
         String author = "";
         String title = "";
@@ -46,7 +47,7 @@ public class Main {
                     System.out.println("Enter ISBN: ");
                     ISBN = sc.next();
                     try {
-                        libraryService.removeBook(ISBN);
+                        libraryService.searchBook(ISBN);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }

@@ -1,6 +1,7 @@
 package Service.Impl;
 
 import Dao.Impl.LibraryDaoImpl;
+import Dao.LibraryDao;
 import Model.Book;
 import Model.Exception.BookNotFound;
 import Service.LibraryService;
@@ -8,7 +9,7 @@ import Service.LibraryService;
 import java.util.Map;
 
 public class LibraryServiceImpl implements LibraryService {
-    LibraryDaoImpl dao = new LibraryDaoImpl();
+    private LibraryDao dao = new LibraryDaoImpl();
 
     @Override
     public String addBook(Book book) throws BookNotFound {
@@ -35,12 +36,13 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public String searchBook(String keyWord) throws BookNotFound {
+    public Book searchBook(String keyWord) throws BookNotFound {
         if (keyWord == null) {
             throw new BookNotFound("keyWord is null");
         }
         dao.searchBook(keyWord);
-        return "book searched successfully";
+        System.out.println("Book searched successfully");
+        return null;
     }
 
     @Override
